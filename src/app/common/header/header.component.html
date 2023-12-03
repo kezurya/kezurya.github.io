@@ -1,9 +1,15 @@
 <div
     class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-4 flex flex-row items-center text-black">
-    <fa-icon size="2x" [icon]="faBars" />
-    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true">
-        <mat-icon>menu</mat-icon>
-    </button>
+
+    <span *ngIf="!this.sidenavOpen">
+        <fa-icon (click)="this.toggleSidenav()" size="2x" [icon]="faBars" />
+    </span>
+
+    <span *ngIf="this.sidenavOpen">
+        <fa-icon (click)="this.toggleSidenav()" size="2x" [icon]="faXmark" />
+    </span>
+
+
     <div class="flex items-center justify-center grow">
         <a [routerLink]="['/']">
             <img class="h-16 rounded-full" src="assets/kezurya-logo.jpg" alt="Logo">
@@ -11,19 +17,3 @@
     </div>
 
 </div>
-
-
-<mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav>
-        <mat-nav-list>
-            <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
-            <a href="#" mat-list-item>Menu Item 1</a>
-            <a href="#" mat-list-item>Menu Item 2</a>
-            <a href="#" mat-list-item>Menu Item 3</a>
-            <a href="#" mat-list-item>Menu Item 4</a>
-            <a href="#" mat-list-item>Menu Item 5</a>
-            <a href="#" mat-list-item>Menu Item 6</a>
-        </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
-</mat-sidenav-container>

@@ -1,6 +1,14 @@
 <main class="flex flex-col bg-black text-white h-full min-h-screen">
-  <app-header></app-header>
-  <div class="p-2">
-    <router-outlet></router-outlet>
-  </div>
+  <app-header [sidenavOpen]="this.sidenavOpen" (toggleSidenavEvent)="this.toggleSidenav()" fxShow="true"></app-header>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <app-navbar></app-navbar>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <div class="p-2 bg-black text-white">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </main>
